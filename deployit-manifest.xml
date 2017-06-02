@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><udm.DeploymentPackage application="cfs-ccrs/cfs-ccrs-releases" version="1.0-RC2"><deployables><jee.Ear name="cfs-ccrsEAR"><fileUri>maven:com.standard.cfs:ccrsEAR:ear:1.0-RC2</fileUri><tags><value>rpdid61c</value></tags></jee.Ear></deployables></udm.DeploymentPackage>

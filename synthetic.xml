@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <type type="xlddar.Task" extends="xlrelease.PythonScript" virtual="true">
+        <property name="iconLocation" default="xldeploy/xldeploy-icon-black-small.png" hidden="true" />
+        <property name="taskColor" hidden="true" default="#68B749" />
+
+        <property name="xldeployServer" category="input" label="Server" referenced-type="xldeploy.Server" kind="ci"/>
+        <property name="username" category="input" required="false" />
+        <property name="password" password="true" category="input" required="false" />
+    </type>
+
+    <type type="xlddar.CreateDirectory" extends="xlddar.Task" label="Create Directory" description="Creates an application directory.">
+        <property name="scriptLocation" default="xlddar/createDirectory.py" hidden="true" />
+        <property name="xldeployServer" category="input" label="Server" referenced-type="xldeploy.Server" kind="ci"/>
+        <property name="username" category="input" label="username" required="true" />
+        <property name="password" password="true" category="input" required="true" />
+
+        <property name="ciDirectory" category="input" label="Directory Name" required="true" />
+    </type>
+
+    <type type="xlddar.CreateApplication" extends="xlddar.Task" label="Create Application" description="Creates an application.">
+        <property name="scriptLocation" default="xlddar/createApplication.py" hidden="true" />
+        <property name="xldeployServer" category="input" label="Server" referenced-type="xldeploy.Server" kind="ci"/>
+        <property name="username" category="input" label="username" required="true" />
+        <property name="password" password="true" category="input" required="true" />
+
+        <property name="ciApplication" category="input" label="Application Name" required="true" />
+    </type>
+
+    <type type="xlddar.UploadDeploymentPackage" extends="xlddar.Task" label="Upload DeploymentPackage" description="Creates and uploads a Deployment Package (dar).  The xmlDescriptor root node is 'deployables'">
+        <property name="scriptLocation" default="xlddar/uploadPackage.py" hidden="true" />
+        <property name="xldeployServer" category="input" label="Server" referenced-type="xldeploy.Server" kind="ci"/>
+        <property name="username" category="input" label="username" required="true" />
+        <property name="password" password="true" category="input" required="true" />
+
+        <property name="ciDirectory" category="input" label="Directory Name" required="false" />
+        <property name="ciApplication" category="input" label="Application Name" required="true" />
+        <property name="ciVersion" category="input" label="Version" required="true" />
+        <property name="xmlDescriptor" category="input" required="true" size="large"/>
+    </type>
+</synthetic>
